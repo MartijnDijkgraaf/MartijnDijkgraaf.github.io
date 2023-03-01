@@ -15,7 +15,7 @@
     </select>
 
     <script>
-        let field = new SquidexFormField();
+        let editor = new SquidexFormField();
 
         var element = document.getElementById('editor');
         var option = document.createElement("option");
@@ -23,11 +23,12 @@
         option.value = "myvalue";
         element.appendChild(option);
 
-        console.log(field);
+        console.log(editor.getValue());
+        console.log(editor.getFormValue());
 
         function handleSelectedData() {
-            var x = document.getElementById("mySelect").value;
-            field.value(x)
+            var x = element.value;
+            editor.valueChanged(x)
         }
     </script>
 </body>
