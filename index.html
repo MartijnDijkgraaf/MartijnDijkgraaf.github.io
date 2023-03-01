@@ -16,21 +16,29 @@
 
     <script>
         let editor = new SquidexFormField();
+        const colors;
 
         var element = document.getElementById('editor');
 
         editor.onFormValueChanged(function (value) {
-            for (var i = 0; i < value.color.iv.length; i++) {
-                document.getElementById('editor');
-                var option = document.createElement("option");
-                option.text = value.color.iv[i].name;
-                option.value = value.color.iv[i].name
-                if (option.value === editor.getValue()) {
-                    option.selected = true;
+            if (colors != value.color.iv) {
+                while (element.options.length > 1) {
+                    element.options.remove(1);
                 }
-                element.appendChild(option);
+                for (var i = 0; i < value.color.iv.length; i++) {
+                    document.getElementById('editor');
+                    var option = document.createElement("option");
+                    option.text = value.color.iv[i].name;
+                    option.value = value.color.iv[i].name
+                    if (option.value === editor.getValue()) {
+                        option.selected = true;
+                    }
+                    element.appendChild(option);
 
-                console.log(editor.getValue());
+                    console.log(editor.getValue(), editor, editor.value);
+                }
+                colors = value.color.iv;
+
             }
 
         });
