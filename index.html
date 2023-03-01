@@ -6,26 +6,24 @@
 
     <!-- Load the editor sdk from the local folder or https://cloud.squidex.io/scripts/editor-sdk.js -->
     <script src="https://cloud.squidex.io/scripts/editor-sdk.js"></script>
-
-    <style>
-        .ck-editor__editable {
-            min-height: 250px;
-        }
-    </style>
 </head>
 
 <body>
-    <label for="content">Kies de kleur</label>
-    <select onchange="handleSelectedData()" name="content" id="editor">
+    <select onchange="handleSelectedData()" name="content" id="editor"
+        style="width: 100%; box-sizing: border-box; height: 40px;">
         <option disabled selected>Kies je kleur</option>
     </select>
 
     <script>
+        let field = new SquidexFormField();
+
         var element = document.getElementById('editor');
         var option = document.createElement("option");
         option.text = "Text";
         option.value = "myvalue";
         element.appendChild(option);
+
+        console.log(field);
 
         function handleSelectedData() {
             var x = document.getElementById("mySelect").value;
