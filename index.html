@@ -18,21 +18,18 @@
         let editor = new SquidexFormField();
 
         var element = document.getElementById('editor');
-        var option = document.createElement("option");
-        option.text = "Text";
-        option.value = "myvalue";
-        element.appendChild(option);
 
-        console.log(editor.getValue());
-        console.log(editor.getFormValue());
 
-        editor.onInit(function () {
-            var formValue = editor.getFormValue();
-            console.log(formValue);
-        })
 
         editor.onFormValueChanged(function (value) {
             console.log(value)
+            for (var i = 0; i < value.color.iv.length; i++) {
+                element.innerHTML = "";
+                var option = document.createElement("option");
+                option.text = value.color.iv[i].name;
+                option.value = value.color.iv[i].name
+                element.appendChild(option);
+            }
 
         });
 
