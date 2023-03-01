@@ -25,18 +25,22 @@
                 while (element.options.length > 1) {
                     element.options.remove(1);
                 }
-                for (var i = 0; i < value.color.iv.length; i++) {
-                    document.getElementById('editor');
-                    var option = document.createElement("option");
-                    option.text = value.color.iv[i].name;
-                    option.value = value.color.iv[i].name
-                    if (option.value === editor.getValue()) {
-                        option.selected = true;
-                    }
-                    element.appendChild(option);
+                if (value.color.iv) {
+                    for (var i = 0; i < value.color.iv.length; i++) {
+                        document.getElementById('editor');
+                        var option = document.createElement("option");
+                        option.text = value.color.iv[i].name;
+                        option.value = value.color.iv[i].name
+                        if (option.value === editor.getValue()) {
+                            option.selected = true;
+                        }
+                        element.appendChild(option);
 
-                    console.log(editor.getValue(), editor, editor.value);
+                        console.log(editor.getValue(), editor, editor.value);
+                    }
                 }
+
+                console.log(editor.getValue(), editor, editor.value, value);
                 colors = value.color.iv;
 
             }
