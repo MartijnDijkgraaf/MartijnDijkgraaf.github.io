@@ -26,8 +26,14 @@
         console.log(editor.getValue());
         console.log(editor.getFormValue());
 
+        editor.onInit(function () {
+            var formValue = editor.getFormValue();
+            console.log(formValue);
+        })
+
         editor.onFormValueChanged(function (value) {
             console.log(value)
+
         });
 
         function handleSelectedData() {
