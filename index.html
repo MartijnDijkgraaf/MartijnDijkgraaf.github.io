@@ -16,7 +16,7 @@
 
     <script>
         let editor = new SquidexFormField();
-        const colors = [];
+        var colors = [];
 
         var element = document.getElementById('editor');
 
@@ -31,12 +31,11 @@
                         var option = document.createElement("option");
                         option.text = value.color.iv[i].name;
                         option.value = value.color.iv[i].name
-                        if (option.value === editor.getValue()) {
+                        if (option.value === value["custom-editor"].iv) {
+
                             option.selected = true;
                         }
                         element.appendChild(option);
-
-                        console.log(editor.getValue(), editor, editor.value);
                     }
                 }
 
