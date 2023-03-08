@@ -20,27 +20,28 @@
 
         var element = document.getElementById('editor');
 
+
+
         editor.onFormValueChanged(function (value) {
             if (colors != value.colors.iv) {
-                console.log(value);
+
                 while (element.options.length > 1) {
                     element.options.remove(1);
                 }
                 if (value.colors.iv) {
                     for (var i = 0; i < value.colors.iv.length; i++) {
-                        console.log(value)
                         document.getElementById('editor');
                         var option = document.createElement("option");
                         option.text = value.colors.iv[i].name;
                         option.value = value.colors.iv[i].name
-                        if (option.value === value["product"].iv) {
+                        if (option.value === value["prices"].iv.priceOptions) {
                             option.selected = true;
                         }
                         element.appendChild(option);
                     }
                 }
 
-                console.log(editor.getValue(), editor, editor.value, value);
+                console.log(editor.getValue(), editor, editor.value, editor.getIndex());
                 colors = value.colors.iv;
 
             }
