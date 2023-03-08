@@ -21,18 +21,17 @@
         var element = document.getElementById('editor');
 
         editor.onFormValueChanged(function (value) {
-            if (colors != value.color.iv) {
+            if (colors != value.colors.iv) {
                 while (element.options.length > 1) {
                     element.options.remove(1);
                 }
-                if (value.color.iv) {
-                    for (var i = 0; i < value.color.iv.length; i++) {
+                if (value.colors.iv) {
+                    for (var i = 0; i < value.colors.iv.length; i++) {
                         document.getElementById('editor');
                         var option = document.createElement("option");
-                        option.text = value.color.iv[i].name;
-                        option.value = value.color.iv[i].name
+                        option.text = value.colors.iv[i].name;
+                        option.value = value.colors.iv[i].name
                         if (option.value === value["custom-editor"].iv) {
-
                             option.selected = true;
                         }
                         element.appendChild(option);
@@ -40,7 +39,7 @@
                 }
 
                 console.log(editor.getValue(), editor, editor.value, value);
-                colors = value.color.iv;
+                colors = value.colors.iv;
 
             }
 
