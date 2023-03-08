@@ -11,7 +11,7 @@
 <body>
     <select onchange="handleSelectedData()" name="content" id="editor"
         style="width: 100%; box-sizing: border-box; height: 40px;">
-        <option disabled selected>Kies je kleur</option>
+        <option disabled>Kies je kleur</option>
     </select>
 
     <script>
@@ -19,10 +19,6 @@
         var colors = [];
 
         var element = document.getElementById('editor');
-
-        editor.onInit((function (value) {
-            console.log(value);
-        }))
 
         editor.onFormValueChanged(function (value) {
             if (colors != value.colors.iv) {
@@ -36,7 +32,7 @@
                         var option = document.createElement("option");
                         option.text = value.colors.iv[i].name;
                         option.value = value.colors.iv[i].name
-                        if (option.value === value["prices"].iv.priceOptions) {
+                        if (option.value === editor.getValue()) {
                             option.selected = true;
                         }
                         element.appendChild(option);
@@ -51,8 +47,10 @@
         });
 
         function handleSelectedData() {
-            var x = element.value;
-            editor.valueChanged(x)
+            if (element.value) {
+                var x = element.value;
+                editor.valueChanged(x)
+            }
         }
     </script>
 </body>
