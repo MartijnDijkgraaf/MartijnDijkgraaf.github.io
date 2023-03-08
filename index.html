@@ -20,7 +20,9 @@
 
         var element = document.getElementById('editor');
 
-
+        editor.onInit((function (value) {
+            console.log(value);
+        }))
 
         editor.onFormValueChanged(function (value) {
             if (colors != value.colors.iv) {
